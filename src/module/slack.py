@@ -53,5 +53,9 @@ def slackout_feargreed(message: str):
 
 # 각 스크립트에 마지막 업데이트 시간 표시 추가
 def get_data_freshness():
-    current_time = datetime.now()
+    from datetime import timezone, timedelta
+
+    # KST는 UTC+9
+    kst = timezone(timedelta(hours=9))
+    current_time = datetime.now(kst)
     return current_time.strftime("%Y-%m-%d %H:%M:%S KST")
