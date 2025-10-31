@@ -3,3 +3,4 @@ pandas
 requests
 pytest
 fear-and-greed
+slack_sdk
