@@ -8,7 +8,7 @@ on:
   workflow_dispatch:  # Allows manual trigger
   schedule:
     # Runs at 00:00 UTC every day (09:00 KST) - only on main branch
-    - cron: '0 0 * * *'
+    - cron: '57 23 * * *'
 
 jobs:
   run-fetcher:
