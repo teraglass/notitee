@@ -22,7 +22,7 @@ def slackout(message: str, channel_tag: str, channel: str):
     client = slack_sdk.WebClient(token=slack_token)
 
     # 공통 포맷
-    slack_msg = f"<{channel_tag}> \n\n{current_time} {message}"
+    slack_msg = f"<{channel_tag}> {current_time} {message}"
 
     # 모음 채널에 한번 보냄
     notitee_slack_msg = f"<@{slack_user_id}> {slack_msg}"
