@@ -83,13 +83,12 @@ def snp500_200ma_main():
 
             # Create consolidated S&P500 report
             sp500_report = f"""
-                            🦖 *S&P500 분석 리포트*
-                                - 현재가: {current_price}
-                                - 200일 이평선: {ma200}
-                                - 차이율: {percentage_diff:+.1f}%
-                                - 기준일: {date}
-
-                                {decision_color} *투자 결정*: {decision}"""
+🦖 *S&P500 분석 리포트*
+    - 현재가: {current_price}
+    - 200일 이평선: {ma200}
+    - 차이율: {percentage_diff:+.1f}%
+    - 기준일: {date}
+{decision_color} *투자 결정*: {decision}"""
 
             slackout_sp500(sp500_report)
         else:

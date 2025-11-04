@@ -101,21 +101,20 @@ def dollar_currency_analysis():
     # 통합 달러환율 리포트 메시지 생성
     if usd_krw_estimate > 0:
         currency_report = f"""
-                        💱 *달러환율 분석 리포트*
-                            - 현재 USD Index: {today_usd_index}
-                            - USD Index 중앙값: {usd_index_median}
-                            - 현재 원달러 환율: {current_usd_krw:.2f}원
-                            - *적정* 원달러 환율: {usd_krw_estimate}원
-                            - *환율 갭*: {usd_gap_percentage}%
-
-                            {decision_color} *투자 결정*: {decision}"""
+💱 *달러환율 분석 리포트*
+    - 현재 USD Index: {today_usd_index}
+    - USD Index 중앙값: {usd_index_median}
+    - 현재 원달러 환율: {current_usd_krw:.2f}원
+    - *적정* 원달러 환율: {usd_krw_estimate}원
+    - *환율 갭*: {usd_gap_percentage}%
+{decision_color} *투자 결정*: {decision}"""
     else:
         currency_report = f"""
-                        💱 *달러환율 분석 리포트*
-                            ⚠️ 적정 원달러 환율 계산 오류 발생
-                            - 현재 USD Index: {today_usd_index}
-                            - USD Index 중앙값: {usd_index_median}
-                            - 현재 원달러 환율: {current_usd_krw}원"""
+💱 *달러환율 분석 리포트*
+    ⚠️ 적정 원달러 환율 계산 오류 발생
+    - 현재 USD Index: {today_usd_index}
+    - USD Index 중앙값: {usd_index_median}
+    - 현재 원달러 환율: {current_usd_krw}원"""
 
     # 통합 메시지 전송
     slackout_dollar(currency_report)

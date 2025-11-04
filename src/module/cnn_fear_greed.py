@@ -61,14 +61,13 @@ def cnn_fear_greed_main():
 
         # Create consolidated Fear & Greed report
         feargreed_report = f"""
-                            🍅 *CNN Fear & Greed 분석 리포트*
-                                - 현재 지수: {fg_score} {emoji}
-                                - 상태: *{fg_status}*
-                                - 업데이트: {fg_date} UTC
-                                - *매수* 기준: {buy_score} 이하
-                                - *매도* 기준: {sell_score} 이상
-
-                                {decision_color} *투자 결정*: {decision}"""
+🍅 *CNN Fear & Greed 분석 리포트*
+    - 업데이트: {fg_date} UTC
+    - 현재 지수: {fg_score} {emoji}
+    - 상태: *{fg_status}*
+    - *매수* 기준: {buy_score} 이하
+    - *매도* 기준: {sell_score} 이상
+{decision_color} *투자 결정*: {decision}"""
 
         slackout_feargreed(feargreed_report)
 
