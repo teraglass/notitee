@@ -10,6 +10,7 @@ on:
     # Runs at 00:00 UTC every day (09:00 KST) - only on main branch
     - cron: '57 23 * * *'
 
+
 jobs:
   run-fetcher:
     runs-on: ubuntu-latest
