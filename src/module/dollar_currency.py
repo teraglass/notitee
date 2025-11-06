@@ -118,3 +118,12 @@ def dollar_currency_analysis():
 
     # 통합 메시지 전송
     slackout_dollar(currency_report)
+
+    # 요약 정보 반환
+    if usd_krw_estimate > 0:
+        summary_data = f"달러: {current_usd_krw:.0f}원 ({usd_gap_percentage:+.1f}%) | {decision.split(' ')[0]}"
+    else:
+        summary_data = f"달러: {current_usd_krw:.0f}원 | 분석오류 ♦️"
+
+    print("✅ 달러환율 분석 완료")
+    return summary_data

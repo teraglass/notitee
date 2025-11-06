@@ -71,5 +71,12 @@ def cnn_fear_greed_main():
 
         slackout_feargreed(feargreed_report)
 
+        # 요약 정보 반환
+        summary_data = f"공포탐욕: {fg_score} ({fg_status}) | {decision.split(' ')[0]}"
+        print("✅ CNN Fear & Greed 분석 완료")
+        return summary_data
+
     except Exception as ex:
         slackout_feargreed(f"⚠️ *CNN Fear & Greed 분석 리포트*\n예외 처리: {str(ex)}")
+        print("✅ CNN Fear & Greed 분석 오류")
+        return "공포탐욕: 분석 오류"
