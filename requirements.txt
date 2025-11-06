@@ -4,3 +4,6 @@ requests
 pytest
 fear-and-greed
 slack_sdk
+python-dotenv
+matplotlib
+plotly
