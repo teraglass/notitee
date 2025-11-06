@@ -1,4 +1,3 @@
-from datetime import datetime, date, timedelta
 import yfinance as yf
 from module.slack import slackout_ma_stage, slackout_summary
 import sys, os
