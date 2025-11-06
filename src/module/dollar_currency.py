@@ -3,7 +3,7 @@ import pandas as pd
 import yfinance as yf
 import time
 
-from module.slack import slackout_dollar, slackout_summary
+from module.slack import slackout_dollar
 import sys, os
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

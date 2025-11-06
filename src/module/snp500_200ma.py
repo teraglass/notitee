@@ -1,6 +1,6 @@
 from datetime import datetime, date, timedelta
 import yfinance as yf
-from module.slack import slackout_sp500, slackout_summary
+from module.slack import slackout_sp500
 
 import sys, os
 
@@ -208,7 +208,7 @@ def snp500_200ma_main():
             market_outlook = "📈 장기 상승 추세 시작 (통계적으로 70% 확률로 1년간 8.6% 상승)"
         elif cross_signal == "death":
             decision = "🔴 *매도* - 데스크로스 발생!"
-            market_outlook = "� 장기 하락 추세 우려"
+            market_outlook = "📉 장기 하락 추세 우려"
         elif diff_200 > 10:
             decision = "🚀 *매수* - 강세장"
             market_outlook = "🔥 200MA 대비 강한 상승 모멘텀"
@@ -268,7 +268,8 @@ def snp500_200ma_main():
         slackout_sp500(report)
         
         # 요약 정보 반환
-        summary_data = f"S&P500: {current_price:,.0f} ({diff_200:+.1f}%) | {decision.split(' - ')[0]} | {cross_signal if cross_signal else '크로스 없음'}"
+        summary_keyword = decision.split(' - ')[0] if ' - ' in decision else decision.split()[0]
+        summary_data = f"S&P500: {current_price:,.0f} ({diff_200:+.1f}%) | {summary_keyword} | {cross_signal if cross_signal else '크로스 없음'}"
         print("✅ S&P500 200MA 분석 완료")
         return summary_data
         

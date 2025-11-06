@@ -1,6 +1,5 @@
-from datetime import datetime, date, timedelta
 import yfinance as yf
-from module.slack import slackout_ma_stage, slackout_summary
+from module.slack import slackout_ma_stage
 import sys, os
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

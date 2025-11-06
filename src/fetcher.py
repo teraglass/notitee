@@ -20,7 +20,8 @@ def main():
     # 달러/환율 분석
     try:
         dollar_summary = dollar_currency_analysis()
-        summaries.append(dollar_summary)
+        if dollar_summary:
+            summaries.append(dollar_summary)
     except Exception as e:
         summaries.append("달러: 분석 오류")
         print(f"♦️ 달러 분석 오류: {e}")
