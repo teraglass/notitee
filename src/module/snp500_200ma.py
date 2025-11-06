@@ -1,6 +1,6 @@
 from datetime import datetime, date, timedelta
 import yfinance as yf
-from module.slack import slackout_sp500, slackout_summary
+from module.slack import slackout_sp500
 
 import sys, os
 
