@@ -85,12 +85,25 @@ def calculate_rsi(prices, period=14):
         gain = (delta.where(delta > 0, 0)).rolling(window=period).mean()
         loss = (-delta.where(delta < 0, 0)).rolling(window=period).mean()
 
-        # 0으로 나누기 방지
-        rs = gain / loss.replace(0, float("inf"))
-        rsi = 100 - (100 / (1 + rs))
+        # RSI 계산을 위한 시리즈 생성
+        rsi = pd.Series(index=prices.index, dtype=float)
+        for i in range(len(prices)):
+            avg_gain = gain.iloc[i]
+            avg_loss = loss.iloc[i]
+            if pd.isna(avg_gain) or pd.isna(avg_loss):
+                rsi.iloc[i] = float('nan')
+            elif avg_loss == 0 and avg_gain == 0:
+                rsi.iloc[i] = 50.0
+            elif avg_loss == 0:
+                rsi.iloc[i] = 100.0
+            elif avg_gain == 0:
+                rsi.iloc[i] = 0.0
+            else:
+                rs = avg_gain / avg_loss
+                rsi.iloc[i] = 100 - (100 / (1 + rs))
 
         # 마지막 값을 float로 변환, NaN이면 50 반환
-        rsi_value = float(rsi.iloc[-1].item())
+        rsi_value = float(rsi.iloc[-1])
         return rsi_value if not pd.isna(rsi_value) else 50.0
 
     except Exception:
