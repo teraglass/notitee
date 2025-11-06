@@ -268,7 +268,8 @@ def snp500_200ma_main():
         slackout_sp500(report)
         
         # 요약 정보 반환
-        summary_data = f"S&P500: {current_price:,.0f} ({diff_200:+.1f}%) | {decision.split(' - ')[0]} | {cross_signal if cross_signal else '크로스 없음'}"
+        summary_keyword = decision.split(' - ')[0] if ' - ' in decision else decision.split()[0]
+        summary_data = f"S&P500: {current_price:,.0f} ({diff_200:+.1f}%) | {summary_keyword} | {cross_signal if cross_signal else '크로스 없음'}"
         print("✅ S&P500 200MA 분석 완료")
         return summary_data
         
