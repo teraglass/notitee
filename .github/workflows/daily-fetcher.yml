@@ -7,8 +7,8 @@ on:
     branches: [ develop ]  # Runs on PR to develop
   workflow_dispatch:  # Allows manual trigger
   schedule:
-    # Runs at 00:00 UTC every day (09:00 KST) - only on main branch
-    - cron: '0 0 * * *'
+    # Runs at 00:01 UTC every day (09:01 KST) - only on main branch
+    - cron: '1 0 * * *'
 
 
 
