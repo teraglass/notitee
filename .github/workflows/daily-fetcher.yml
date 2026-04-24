@@ -11,7 +11,6 @@ on:
     - cron: '10 16 * * 1-5'
 
 
-
 jobs:
   run-fetcher:
     runs-on: ubuntu-latest
